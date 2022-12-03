@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hit-and-Blow</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
+
+        * {
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+
+        header {
+            height: 6em;
+            width: 100%;
+        }
+
+        header h1 {
+            display: block;
+            float: left;
+        }
+
+        header p {
+            display: block;
+            float: right;
+        }
+
+        #table table tr td {
+            width: 30px;
+            height: 30px;
+        }
+
+        th,
+        td {
+            border: solid 1px;
+            /* 枠線指定 */
+        }
+
+        table {
+            border-collapse: collapse;
+            /* セルの線を重ねる */
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Hit-and-Blow</h1>
+        <p><a href="https://github.com/Skota11">&copy;2022 Skota11</a></p>
+    </header>
+    <div id="game">
+        <p id="turn"></p>
+        <div id="table">
+            <table border="1">
+                <tbody>
+                    <tr>
+                        <th>ターン</th>
+                        <td>A</td>
+                        <td>B</td>
+                        <td>C</td>
+                        <td>D</td>
+                        <td style="width:auto;">結果</td>
+                    </tr>
+                    <tr>
+                        <th>1</th>
+                        <td id="1-A"></td>
+                        <td id="1-B"></td>
+                        <td id="1-C"></td>
+                        <td id="1-D"></td>
+                        <td style="width:auto;" id="1-result"></td>
+                    </tr>
+
+                    <tr>
+                        <th>2</th>
+                        <td id="2-A"></td>
+                        <td id="2-B"></td>
+                        <td id="2-C"></td>
+                        <td id="2-D"></td>
+                        <td style="width:auto;" id="2-result"></td>
+                    </tr>
+                    <tr>
+                        <th>3</th>
+                        <td id="3-A"></td>
+                        <td id="3-B"></td>
+                        <td id="3-C"></td>
+                        <td id="3-D"></td>
+                        <td style="width:auto;" id="3-result"></td>
+                    </tr>
+
+                    <tr>
+                        <th>4</th>
+                        <td id="4-A"></td>
+                        <td id="4-B"></td>
+                        <td id="4-C"></td>
+                        <td id="4-D"></td>
+                        <td style="width:auto;" id="4-result"></td>
+                    </tr>
+                    <tr>
+                        <th>5</th>
+                        <td id="5-A"></td>
+                        <td id="5-B"></td>
+                        <td id="5-C"></td>
+                        <td id="5-D"></td>
+                        <td style="width:auto;" id="5-result"></td>
+                    </tr>
+
+                    <tr>
+                        <th>6</th>
+                        <td id="6-A"></td>
+                        <td id="6-B"></td>
+                        <td id="6-C"></td>
+                        <td id="6-D"></td>
+                        <td style="width:auto;" id="6-result"></td>
+                    </tr>
+                    <tr>
+                        <th>7</th>
+                        <td id="7-A"></td>
+                        <td id="7-B"></td>
+                        <td id="7-C"></td>
+                        <td id="7-D"></td>
+                        <td style="width:auto;" id="7-result"></td>
+                    </tr>
+
+                    <tr>
+                        <th>8</th>
+                        <td id="8-A"></td>
+                        <td id="8-B"></td>
+                        <td id="8-C"></td>
+                        <td id="8-D"></td>
+                        <td style="width:auto;" id="8-result"></td>
+                    </tr>
+                </tbody>
+                <div id="select">
+                    <button class="btn btn-outline-dark " onclick="select_color('red')">赤<img
+                            src="https://hit-and-brow.skota11.repl.co/red.svg" alt=""></button>
+                    <button class="btn btn-outline-dark " onclick="select_color('blue')">青<img
+                            src="https://hit-and-brow.skota11.repl.co/blue.svg" alt=""></button>
+                    <button class="btn btn-outline-dark " onclick="select_color('yellow-green')">黄緑<img
+                            src="https://hit-and-brow.skota11.repl.co/yellow-green.svg" alt=""></button>
+                    <button class="btn btn-outline-dark " onclick="select_color('yellow')">黄<img
+                            src="https://hit-and-brow.skota11.repl.co/yellow.svg" alt=""></button>
+                    <button class="btn btn-outline-dark " onclick="select_color('pink')">桃<img
+                            src="https://hit-and-brow.skota11.repl.co/pink.svg" alt=""></button>
+                    <button class="btn btn-outline-dark " onclick="select_color('white')">白<img
+                            src="https://hit-and-brow.skota11.repl.co/white.svg" alt=""></button>
+                    <button value="bottom-0 start-0" class="btn btn-primary" onclick="selectok()">決定</button>
+                    <span>|</span>
+                    <button onclick="select_color('right')">→<img src="https://hit-and-brow.skota11.repl.co/right.svg"
+                            alt=""></button>
+                    <button onclick="select_color('left')">←<img src="https://hit-and-brow.skota11.repl.co/left.svg"
+                            alt=""></button>
+                </div>
+                <div class="toast-container position-fixed bottom-1 start-0 p-3">
+                    <div id="toast" class="toast" role="alert" aria-live="polite" aria-atomic="true"
+                        data-bs-delay="2000">
+                        <div class="toast-body">
+                            すべてを選択してください
+                        </div>
+                    </div>
+                </div>
+                <div class="toast-container position-fixed bottom-1 start-0 p-3">
+                    <div id="toast1" class="toast" role="alert" aria-live="polite" aria-atomic="true"
+                        data-bs-delay="60000">
+                        <div class="toast-body">
+                            クリア<a href="/single">もう一度プレイ</a>
+                        </div>
+                    </div>
+                </div>
+            </table>
+        </div>
+    </div>
+    <script src="single-script.js"></script>
+    <script type="text/javascript">
+        var options = { autohide: true };
+        var exampleEl = document.getElementById('toast');
+        var toast = new bootstrap.Toast(exampleEl, options);
+        var exampleE2 = document.getElementById('toast1');
+        var toast1 = new bootstrap.Toast(exampleE2, options);
+    </script>
+
+</body>
+
+</html>
