@@ -15,7 +15,7 @@ export default {
       for (let i = 0; i < 4; i++) {
     this.com[i] = this.color[Math.floor(Math.random() * 6)];
   }
-  this.$refs[`1-1`].className = "selection"
+  (this.$refs[`1-1`] as any).className = "selection"
     }
 },
   methods: {
@@ -38,10 +38,10 @@ export default {
             break;
           }
         default:
-          this.block[this.turn-1][this.selection-1] = tmp;
-          console.log(this.turn)
-          console.log(this.selection)
-          this.$refs[`${this.turn}-${this.selection}`].innerHTML = `<img src="https://hit-and-brow.skota11.repl.co/${tmp}.svg"/>`
+          (this.block[this.turn-1][this.selection-1] as any) = tmp;
+          console.log(this.turn);
+          console.log(this.selection);
+          ((this.$refs[`${this.turn}-${this.selection}`]) as any ).innerHTML = `<img src="https://hit-and-brow.skota11.repl.co/${tmp}.svg"/>`
           if(this.selection !== 4){
             this.old_selection = this.selection;
           this.selection++;
@@ -69,18 +69,18 @@ export default {
       }
     }
     this.old_selection = this.selection;
-    this.$refs[`${this.turn}-result`].textContent = `${hit}ヒット/${blow}ブロー`;
+    (this.$refs[`${this.turn}-result`] as any).textContent = `${hit}ヒット/${blow}ブロー`;
     this.turn++;
-    this.$refs[`${this.turn-1}-${this.old_selection}`].className = ""
-      this.$refs[`${this.turn}-1`].className = "selection"
+    (this.$refs[`${this.turn-1}-${this.old_selection}`] as any).className = "";
+      (this.$refs[`${this.turn}-1`] as any).className = "selection"
     this.selection=1;
       }
     }
   },
   watch: {
     selection(new_select){
-      this.$refs[`${this.turn}-${this.old_selection}`].className = ""
-      this.$refs[`${this.turn}-${new_select}`].className = "selection"
+      (this.$refs[`${this.turn}-${this.old_selection}`] as any).className = "";
+      (this.$refs[`${this.turn}-${new_select}`] as any).className = "selection";
     }
   }
 }
