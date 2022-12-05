@@ -87,6 +87,7 @@ export default {
 </script>
 
 <template>
+  <p><a href="https://github.com/Skota11/hit-and-blow">Github</a></p>
   <div id="game">
         <p id="turn">{{turn}}ターン目/8</p>
         <div id="select">
