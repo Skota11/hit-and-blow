@@ -41,7 +41,7 @@ export default {
           (this.block[this.turn-1][this.selection-1] as any) = tmp;
           console.log(this.turn);
           console.log(this.selection);
-          ((this.$refs[`${this.turn}-${this.selection}`]) as any ).innerHTML = `<img src="https://hit-and-brow.skota11.repl.co/${tmp}.svg"/>`
+          ((this.$refs[`${this.turn}-${this.selection}`]) as any ).innerHTML = `<img src="/${tmp}.svg"/>`
           if(this.selection !== 4){
             this.old_selection = this.selection;
           this.selection++;
@@ -92,22 +92,22 @@ export default {
         <p id="turn">{{turn}}ターン目/8</p>
         <div id="select">
                   <button class="btn btn-outline-dark " @click="select_color('red')">赤<img
-    src="https://hit-and-brow.skota11.repl.co/red.svg" alt=""></button>
+    src="/red.svg" alt=""></button>
 <button class="btn btn-outline-dark " @click="select_color('blue')">青<img
-    src="https://hit-and-brow.skota11.repl.co/blue.svg" alt=""></button>
+    src="/blue.svg" alt=""></button>
 <button class="btn btn-outline-dark " @click="select_color('yellow-green')">黄緑<img
-    src="https://hit-and-brow.skota11.repl.co/yellow-green.svg" alt=""></button>
+    src="/yellow-green.svg" alt=""></button>
 <button class="btn btn-outline-dark " @click="select_color('yellow')">黄<img
-    src="https://hit-and-brow.skota11.repl.co/yellow.svg" alt=""></button>
+    src="/yellow.svg" alt=""></button>
 <button class="btn btn-outline-dark " @click="select_color('pink')">桃<img
-    src="https://hit-and-brow.skota11.repl.co/pink.svg" alt=""></button>
+    src="/pink.svg" alt=""></button>
 <button class="btn btn-outline-dark " @click="select_color('white')">白<img
-    src="https://hit-and-brow.skota11.repl.co/white.svg" alt=""></button>
+    src="/white.svg" alt=""></button>
 <button value="bottom-0 start-0" class="btn btn-primary" @click="selectok()">決定</button>
                     <span>|</span>
-                    <button @click="select_color('right')">→<img src="https://hit-and-brow.skota11.repl.co/right.svg"
+                    <button @click="select_color('right')">→<img src="/right.svg"
                             alt=""></button>
-                    <button @click="select_color('left')">←<img src="https://hit-and-brow.skota11.repl.co/left.svg"
+                    <button @click="select_color('left')">←<img src="/left.svg"
                             alt=""></button>
                 </div>
         <div id="table">
